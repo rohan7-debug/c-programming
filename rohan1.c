@@ -6,30 +6,21 @@ int checkPassword(char password[])
     int i;
     int hasDigit = 0;
     int hasUpper = 0;
-
-    // Check minimum length
-    if (strlen(password) < 8)
+    if (strlen(password) <= 8)
     {
         return 0;
     }
-
-    // Loop through each character
     for (i = 0; password[i] != '\0'; i++)
     {
-        // Check digit
         if (password[i] >= '0' && password[i] <= '9')
         {
             hasDigit = 1;
         }
-
-        // Check uppercase letter
         if (password[i] >= 'A' && password[i] <= 'Z')
         {
             hasUpper = 1;
         }
     }
-
-    // Check all conditions
     if (hasDigit == 1 && hasUpper == 1)
     {
         return 1;
@@ -39,17 +30,13 @@ int checkPassword(char password[])
         return 0;
     }
 }
-
 int main()
 {
     char password[50];
     int result;
-
     printf("Enter password: ");
     scanf("%s", password);
-
     result = checkPassword(password);
-
     if (result == 1)
     {
         printf("Password is STRONG\n");
@@ -58,6 +45,5 @@ int main()
     {
         printf("Password is WEAK\n");
     }
-
     return 0;
 }
